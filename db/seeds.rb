@@ -6,18 +6,30 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.create(name: "Dolly Adams", email: "dolly@adams.com", password: "password", budget: 1200)
-User.create(name: "Barnes Noble", email: "barnes@noble.com", password: "password", budget: 1300)
-User.create(name: "Ronald Rots", email: "ronald@rots.com", password: "password", budget: 450)
-User.create(name: "Malcolm Rich", email: "malcolm@rich.com", password: "password", budget: 1600)
+User.create(name: "Dolly Adams", email: "dolly@adams.com", password: "password")
+User.create(name: "Barnes Noble", email: "barnes@noble.com", password: "password")
+User.create(name: "Ronald Rots", email: "ronald@rots.com", password: "password")
+User.create(name: "Malcolm Rich", email: "malcolm@rich.com", password: "password")
 
 
-Destination.create(country: "Thailand", state: "Kho Tao")
-Destination.create(country: "Vietnam", state: "Ho Chi Min")
-Destination.create(country: "Mexico", state: "Guadalajara")
-Destination.create(country: "Jamaica", state: "Negril")
+thailand = Destination.create(country: "Thailand", state: "Kho Tao")
+vietnam = Destination.create(country: "Vietnam", state: "Ho Chi Min")
+mexico = Destination.create(country: "Mexico", state: "Guadalajara")
+jamica = Destination.create(country: "Jamaica", state: "Negril")
 
-Activities.create(country: "Thailand", state: "Kho Tao")
-Activities.create(country: "Vietnam", state: "Ho Chi Min")
-Activities.create(country: "Mexico", state: "Guadalajara")
-Activities.create(country: "Jamaica", state: "Negril")
+#Activity.create(country: "Thailand", state: "Kho Tao")
+#Activity.create(country: "Vietnam", state: "Ho Chi Min")
+#Activity.create(country: "Mexico", state: "Guadalajara")
+#Activity.create(country: "Jamaica", state: "Negril")
+
+
+
+trip1 = Trip.create(:description => "to thailand", :user_id => 1, :budget => 100)
+thailand.trips << trip1
+trip1.save
+trip2 = Trip.create(:description => "to thailand", :user_id => 2, :budget => 300)
+thailand.trips << trip2
+trip2.save
+trip3 = Trip.create(:description => "to mexico", :user_id => 1, :budget => 500)
+mexico.trips << trip3
+trip3.save
